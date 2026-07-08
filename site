@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trident Movers - Move with Ease of Mind</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: #1A2B22;
+    background: #FBF8F0;
+    line-height: 1.6;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+  section { padding: 4rem 0; }
+
+  /* Hero */
+  .hero {
+    background: #0F3D2E;
+    text-align: center;
+    padding: 5rem 1.5rem 4rem;
+  }
+  .hero svg { display: block; margin: 0 auto 1.5rem; }
+  .hero h1 {
+    font-size: 38px;
+    font-weight: 600;
+    color: #F8D77E;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .hero p.tagline {
+    font-size: 20px;
+    color: #FDF8E8;
+    margin-bottom: 32px;
+  }
+  .btn-gold {
+    background: linear-gradient(180deg, #F8D77E, #D9A027);
+    border: none;
+    color: #3D2A06;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(217,160,39,0.4); }
+  .hero p.subtext {
+    font-size: 14px;
+    color: #BFD8C9;
+    margin-top: 18px;
+  }
+
+  /* Section headers */
+  .section-title {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+    color: #0F3D2E;
+  }
+  .section-subtitle {
+    font-size: 15px;
+    color: #5A6B5E;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* Quote form */
+  .form-card {
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #E5E0D0;
+    padding: 2rem 2.25rem;
+    max-width: 560px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(15,61,46,0.06);
+  }
+  .form-card label {
+    font-size: 13px;
+    color: #5A6B5E;
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .form-card input, .form-card select, .form-card textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #E0DBC8;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #FBF8F0;
+    color: #1A2B22;
+  }
+  .form-card input:focus, .form-card select:focus, .form-card textarea:focus {
+    outline: none;
+    border-color: #D9A027;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+  .form-group { margin-bottom: 14px; }
+  .checkbox-group { display: flex; gap: 8px; flex-wrap: wrap; }
+  .checkbox-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    background: #F1EDE0;
+    padding: 7px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #1A2B22;
+  }
+  .checkbox-pill input { width: auto; }
+  .form-submit {
+    width: 100%;
+    background: #0F3D2E;
+    border: none;
+    color: #F8D77E;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+  .form-submit:hover { background: #16513E; }
+  .divider { display: flex; align-items: center; gap: 10px; margin: 18px 0; }
+  .divider .line { flex: 1; height: 1px; background: #E5E0D0; }
+  .divider span { font-size: 12px; color: #9A9580; }
+  .call-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #0F3D2E;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px;
+    border: 1px solid #E5E0D0;
+    border-radius: 8px;
+  }
+  .call-link:hover { background: #F1EDE0; }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+  }
+  .service-card {
+    background: #fff;
+    border: 1px solid #E5E0D0;
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .service-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,61,46,0.08); }
+  .icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #0F3D2E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 20px;
+  }
+  .service-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: #0F3D2E; }
+  .service-card p { font-size: 13.5px; color: #5A6B5E; }
+
+  /* Why choose us */
+  .why-section { background: #F1EDE0; }
+  .why-intro { text-align: center; margin-bottom: 2.5rem; }
+  .why-intro p.lead { font-size: 19px; font-weight: 600; margin-bottom: 10px; color: #0F3D2E; }
+  .why-intro p.desc { font-size: 14.5px; color: #5A6B5E; max-width: 540px; margin: 0 auto; line-height: 1.8; }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+  }
+  .why-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .why-card .why-icon { font-size: 26px; margin-bottom: 10px; }
+  .why-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; color: #0F3D2E; }
+  .why-card p { font-size: 13px; color: #5A6B5E; }
+
+  footer {
+    background: #0F3D2E;
+    color: #BFD8C9;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    font-size: 13px;
+  }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 30px; }
+    .section-title { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LAYER 1: HERO -->
+<section class="hero">
+  <svg width="110" height="110" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FCE8AE"/>
+        <stop offset="40%" stop-color="#E8B638"/>
+        <stop offset="100%" stop-color="#9C7212"/>
+      </linearGradient>
+      <linearGradient id="goldShine" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#FFF6DC" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#FFF6DC" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="50" cy="50" r="48" fill="#0B2E22" stroke="url(#goldGrad)" stroke-width="2.5"/>
+    <g transform="translate(50,52)">
+      <rect x="-3" y="-30" width="6" height="46" rx="2.5" fill="url(#goldGrad)"/>
+      <rect x="-3" y="-30" width="2.4" height="46" rx="1" fill="url(#goldShine)" opacity="0.6"/>
+      <path d="M -19 -33 Q -21 -18 -10 -6 Q -6 -2 -3 2 L -3 -14 Q -10 -19 -10 -33 Z" fill="url(#goldGrad)"/>
+      <path d="M 19 -33 Q 21 -18 10 -6 Q 6 -2 3 2 L 3 -14 Q 10 -19 10 -33 Z" fill="url(#goldGrad)"/>
+      <path d="M -4 -33 L -4 0 L 4 0 L 4 -33 Z" fill="url(#goldGrad)"/>
+      <path d="M -1.2 -33 L -1.2 -2 L 1.2 -2 L 1.2 -33 Z" fill="url(#goldShine)" opacity="0.7"/>
+      <ellipse cx="-19.5" cy="-34" rx="3" ry="3.2" fill="#FCE8AE"/>
+      <ellipse cx="0" cy="-35" rx="3.2" ry="3.4" fill="#FCE8AE"/>
+      <ellipse cx="19.5" cy="-34" rx="3" ry="3.2" fill="#FCE8AE"/>
+      <rect x="-13" y="6" width="26" height="5" rx="2" fill="url(#goldGrad)"/>
+      <rect x="-13" y="6" width="26" height="2" rx="1" fill="url(#goldShine)" opacity="0.5"/>
+    </g>
+  </svg>
+  <h1>Trident Movers</h1>
+  <p class="tagline">Move with ease of mind</p>
+  <button class="btn-gold" onclick="document.getElementById('quote-form').scrollIntoView({behavior:'smooth'})">Get a free quote</button>
+  <p class="subtext">Local residential moves, handled with care</p>
+</section>
+
+<!-- LAYER 2: QUOTE FORM -->
+<section id="quote-form">
+  <div class="container">
+    <p class="section-title">Get your free quote</p>
+    <p class="section-subtitle">Takes about 2 minutes. No obligation.</p>
+
+    <div class="form-card">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full name</label>
+          <input type="text" placeholder="Jane Smith" />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" placeholder="+254 735 393874" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="jane@email.com" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Move date</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label>Home size</label>
+          <select>
+            <option>Studio</option>
+            <option>1 bedroom</option>
+            <option>2 bedrooms</option>
+            <option>3 bedrooms</option>
+            <option>4+ bedrooms</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Moving from</label>
+        <input type="text" placeholder="Current address" />
+      </div>
+
+      <div class="form-group">
+        <label>Moving to</label>
+        <input type="text" placeholder="New address" />
+      </div>
+
+      <div class="form-group">
+        <label>Any special items?</label>
+        <div class="checkbox-group">
+          <label class="checkbox-pill"><input type="checkbox" />Piano</label>
+          <label class="checkbox-pill"><input type="checkbox" />Safe</label>
+          <label class="checkbox-pill"><input type="checkbox" />Artwork</label>
+          <label class="checkbox-pill"><input type="checkbox" />Gym equipment</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Need any extra services?</label>
+        <div class="checkbox-group">
+          <label class="checkbox-pill"><input type="checkbox" />TV mounting</label>
+          <label class="checkbox-pill"><input type="checkbox" />Water heater installation</label>
+          <label class="checkbox-pill"><input type="checkbox" />Lighting fixtures</label>
+          <label class="checkbox-pill"><input type="checkbox" />Artwork hanging</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Anything else we should know?</label>
+        <textarea rows="3" placeholder="Stairs, parking restrictions, fragile items..."></textarea>
+      </div>
+
+      <button class="form-submit" onclick="alert('Thanks! This is a design preview — connect a form handler to receive real submissions.')">Request my free quote</button>
+
+      <div class="divider"><div class="line"></div><span>or</span><div class="line"></div></div>
+
+      <a href="tel:+254735393874" class="call-link">📞 Prefer to talk? Call us at +254 735 393874</a>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 3: SERVICES -->
+<section>
+  <div class="container">
+    <p class="section-title">Our services</p>
+    <p class="section-subtitle">Everything you need for a smooth local move, all under one roof.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon-badge">📦</div>
+        <h3>Packing & unpacking</h3>
+        <p>We carefully pack your belongings and unpack them at your new place, room by room.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-badge">🚚</div>
+        <h3>Loading & transport</h3>
+        <p>Safe loading and a smooth ride to your new home, on time and on schedule.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-badge">🛡️</div>
+        <h3>Furniture protection</h3>
+        <p>Blankets, wrap, and padding keep your furniture and floors scratch-free.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-badge">🔧</div>
+        <h3>Disassembly & reassembly</h3>
+        <p>Beds, shelves, and tables taken apart and rebuilt so you don't have to.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-badge">📍</div>
+        <h3>Drop-offs</h3>
+        <p>Donations, storage, or a second stop — we'll handle the extra trip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYER 4: WHY CHOOSE US -->
+<section class="why-section">
+  <div class="container">
+    <div class="why-intro">
+      <p class="lead">Looking for a reliable moving team?</p>
+      <p class="desc">With 7 years of industry experience, we provide professional, efficient, and careful moving services you can trust. Our highly skilled crew handles all items—from fragile valuables to heavy furniture—with the utmost care. We use clean, dependable transportation and have a dedicated team leader on standby to quickly resolve any issues that may arise.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">📅</div>
+        <h4>7 years experience</h4>
+        <p>A proven track record in the moving industry.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🤲</div>
+        <h4>Careful with everything</h4>
+        <p>From fragile valuables to heavy furniture, handled with care.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🚛</div>
+        <h4>Dependable transport</h4>
+        <p>Clean, reliable vehicles for every move.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🎧</div>
+        <h4>Team leader on standby</h4>
+        <p>Quick to step in and resolve anything that comes up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (placeholder, will expand later) -->
+<footer>
+  <p>Trident Movers · Local residential moves · +254 735 393874</p>
+</footer>
+
+</body>
+</html>
