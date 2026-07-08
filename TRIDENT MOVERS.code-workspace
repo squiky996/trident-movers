@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "Trident Files"
+		}
+	],
+	"settings": {
+		"trae.privacy.mode": true,
+		"liveServer.settings.CustomBrowser": "chrome",
+		"claudeCode.initialPermissionMode": "acceptEdits"
+	}
+}
